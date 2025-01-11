@@ -530,15 +530,15 @@ void NetworkClient::ProcessReply_ControllerCount(unsigned int data_size, char * 
     }
 }
 
-void NetworkClient::ProcessReply_ControllerData(unsigned int /*data_size*/, char * data, unsigned int dev_idx)
+void NetworkClient::ProcessReply_ControllerData(unsigned int /*data_size*/, char* data, unsigned int dev_idx)
 {
-    RGBController_Network * new_controller   = new RGBController_Network(this, dev_idx);
+    RGBController_Network* new_controller = new RGBController_Network(this, dev_idx);
 
-    new_controller->ReadDeviceDescription((unsigned char *)data, GetProtocolVersion());
+    new_controller->ReadDeviceDescription((unsigned char*)data, GetProtocolVersion());
 
     ControllerListMutex.lock();
 
-    if(dev_idx >= server_controllers.size())
+    if (dev_idx >= server_controllers.size())
     {
         server_controllers.push_back(new_controller);
     }
@@ -551,7 +551,10 @@ void NetworkClient::ProcessReply_ControllerData(unsigned int /*data_size*/, char
     ControllerListMutex.unlock();
 
     controller_data_received = true;
+
+    printf("Controller data received for device ID: %d\n", dev_idx);
 }
+
 
 void NetworkClient::ProcessReply_ProtocolVersion(unsigned int data_size, char * data)
 {
@@ -732,10 +735,35 @@ void NetworkClient::SendRequest_RGBController_ResizeZone(unsigned int dev_idx, i
     send(client_sock, (char *)&request_data, sizeof(request_data), MSG_NOSIGNAL);
 }
 
-void NetworkClient::SendRequest_RGBController_UpdateLEDs(unsigned int dev_idx, unsigned char * data, unsigned int size)
+#include <fstream>
+
+std::ofstream logFile;
+
+void NetworkClient::OpenLogFile()
 {
-    if(change_in_progress)
+    logFile.open("C:\\path\\to\\your\\log\\debug_log.txt", std::ios::app);
+}
+
+void NetworkClient::CloseLogFile()
+{
+    if (logFile.is_open())
     {
+        logFile.close();
+    }
+}
+
+std::ofstream logFile("debug_log.txt", std::ios::app);
+
+void NetworkClient::SendRequest_RGBController_UpdateLEDs(unsigned int dev_idx, unsigned char* data, unsigned int size)
+{
+    if (change_in_progress)
+    {
+        return;
+    }
+
+    if (data == nullptr || size == 0)
+    {
+        logFile << "Invalid data or size for UpdateLEDs request\n";
         return;
     }
 
@@ -746,14 +774,27 @@ void NetworkClient::SendRequest_RGBController_UpdateLEDs(unsigned int dev_idx, u
     request_hdr.pkt_magic[2] = 'G';
     request_hdr.pkt_magic[3] = 'B';
 
-    request_hdr.pkt_dev_idx  = dev_idx;
-    request_hdr.pkt_id       = NET_PACKET_ID_RGBCONTROLLER_UPDATELEDS;
-    request_hdr.pkt_size     = size;
+    request_hdr.pkt_dev_idx = dev_idx;
+    request_hdr.pkt_id = NET_PACKET_ID_RGBCONTROLLER_UPDATELEDS;
+    request_hdr.pkt_size = size;
 
     std::lock_guard<std::mutex> locker(SendLock);
-    send(client_sock, (char *)&request_hdr, sizeof(NetPacketHeader), MSG_NOSIGNAL);
-    send(client_sock, (char *)data, size, 0);
+    int header_sent = send(client_sock, (char*)&request_hdr, sizeof(NetPacketHeader), MSG_NOSIGNAL);
+    int data_sent = send(client_sock, (char*)data, size, MSG_NOSIGNAL);
+
+    if (header_sent != sizeof(NetPacketHeader) || data_sent != size)
+    {
+        logFile << "Failed to send UpdateLEDs request. Header sent: " << header_sent << ", Data sent: " << data_sent << "\n";
+    }
+    else
+    {
+        logFile << "UpdateLEDs request sent successfully. Device ID: " << dev_idx << ", Data size: " << size << "\n";
+    }
 }
+
+
+
+
 
 void NetworkClient::SendRequest_RGBController_UpdateZoneLEDs(unsigned int dev_idx, unsigned char * data, unsigned int size)
 {
