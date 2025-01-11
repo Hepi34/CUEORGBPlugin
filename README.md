@@ -28,8 +28,8 @@ This plugin allows creating custom device layouts using json files and custom im
 * Copy built `CUEORGBPlugin.dll` to `C:\Program Files\Corsair\CORSAIR iCUE 5 Software\plugins\OpenRGB`
 
 # OpenRGB Installation
-* Download [OpenRGB x64](https://gitlab.com/CalcProgrammer1/OpenRGB/-/jobs/artifacts/master/download?job=build_windows_64) or [OpenRGB x86](https://gitlab.com/CalcProgrammer1/OpenRGB/-/jobs/artifacts/master/download?job=build_windows_32)
-* Place the folder anywhere
+* Download [OpenRGB]((https://openrgb.org/releases.html))
+* Place the folder anywhere (preferably in Program Files)
 * Open the supported devices settings in OpenRGB and disable all Corsair devices to prevent conflicts (e.g. Commander Pro fan speeds may no longer show up after device scan).
 * You might want to enable the "minimize on close" option in OpenRGB to prevent it from closing when the main window is closed.
 
