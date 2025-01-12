@@ -737,7 +737,6 @@ void NetworkClient::SendRequest_RGBController_ResizeZone(unsigned int dev_idx, i
 }
 
 
-std::ofstream logFile("debug_log.txt", std::ios::app);
 
 void NetworkClient::SendRequest_RGBController_UpdateLEDs(unsigned int dev_idx, unsigned char* data, unsigned int size)
 {
@@ -776,9 +775,6 @@ void NetworkClient::SendRequest_RGBController_UpdateLEDs(unsigned int dev_idx, u
         std::cout << "UpdateLEDs request sent successfully. Device ID: " << dev_idx << ", Data size: " << size << "\n";
     }
 }
-
-
-
 
 
 void NetworkClient::SendRequest_RGBController_UpdateZoneLEDs(unsigned int dev_idx, unsigned char * data, unsigned int size)
