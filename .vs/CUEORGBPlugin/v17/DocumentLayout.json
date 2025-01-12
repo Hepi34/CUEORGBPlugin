@@ -7,28 +7,8 @@
       "RelativeMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|solutionrelative:thirdparty\\OpenRGB\\NetworkClient.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CUESDKDevice.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|solutionrelative:CUESDKDevice.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\thirdparty\\OpenRGB\\RGBController\\RGBController.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|solutionrelative:thirdparty\\OpenRGB\\RGBController\\RGBController.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CorsairPluginDevice.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|solutionrelative:CorsairPluginDevice.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CorsairPluginDevice.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|solutionrelative:CorsairPluginDevice.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CorsairPluginDeviceManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|solutionrelative:CorsairPluginDeviceManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CorsairPluginDeviceManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B71258E2-6D34-419A-82C0-E6F822E57902}|CUEORGBPlugin.vcxproj|solutionrelative:CorsairPluginDeviceManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -48,84 +28,22 @@
               "RelativeDocumentMoniker": "thirdparty\\OpenRGB\\NetworkClient.cpp",
               "ToolTip": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\thirdparty\\OpenRGB\\NetworkClient.cpp",
               "RelativeToolTip": "thirdparty\\OpenRGB\\NetworkClient.cpp",
-              "ViewState": "AgIAAEgDAAAAAAAAAAAQwEwDAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAOcCAAAAAAAAAAAAAPECAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-11T17:30:53.423Z",
+              "WhenOpened": "2025-01-12T00:00:41.832Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RGBController.cpp",
-              "DocumentMoniker": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\thirdparty\\OpenRGB\\RGBController\\RGBController.cpp",
-              "RelativeDocumentMoniker": "thirdparty\\OpenRGB\\RGBController\\RGBController.cpp",
-              "ToolTip": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\thirdparty\\OpenRGB\\RGBController\\RGBController.cpp",
-              "RelativeToolTip": "thirdparty\\OpenRGB\\RGBController\\RGBController.cpp",
-              "ViewState": "AgIAANcFAAAAAAAAAAAlwPMFAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-11T17:20:39.517Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CorsairPluginDevice.h",
-              "DocumentMoniker": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CorsairPluginDevice.h",
-              "RelativeDocumentMoniker": "CorsairPluginDevice.h",
-              "ToolTip": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CorsairPluginDevice.h",
-              "RelativeToolTip": "CorsairPluginDevice.h",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-11T17:14:11.444Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CorsairPluginDeviceManager.h",
-              "DocumentMoniker": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CorsairPluginDeviceManager.h",
-              "RelativeDocumentMoniker": "CorsairPluginDeviceManager.h",
-              "ToolTip": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CorsairPluginDeviceManager.h",
-              "RelativeToolTip": "CorsairPluginDeviceManager.h",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-11T17:13:54.023Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CUESDKDevice.h",
-              "DocumentMoniker": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CUESDKDevice.h",
-              "RelativeDocumentMoniker": "CUESDKDevice.h",
-              "ToolTip": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CUESDKDevice.h",
-              "RelativeToolTip": "CUESDKDevice.h",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAAANEAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-11T17:11:56.598Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CorsairPluginDeviceManager.cpp",
-              "DocumentMoniker": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CorsairPluginDeviceManager.cpp",
-              "RelativeDocumentMoniker": "CorsairPluginDeviceManager.cpp",
-              "ToolTip": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CorsairPluginDeviceManager.cpp",
-              "RelativeToolTip": "CorsairPluginDeviceManager.cpp",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAG4AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-11T17:05:31.275Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "CorsairPluginDevice.cpp",
               "DocumentMoniker": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CorsairPluginDevice.cpp",
               "RelativeDocumentMoniker": "CorsairPluginDevice.cpp",
               "ToolTip": "C:\\Users\\noahj\\Downloads\\CUEORGBPlugin\\CorsairPluginDevice.cpp",
               "RelativeToolTip": "CorsairPluginDevice.cpp",
-              "ViewState": "AgIAADUBAAAAAAAAAAAAAEUBAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-11T17:03:22.587Z"
+              "WhenOpened": "2025-01-12T00:00:37.17Z"
             }
           ]
         }

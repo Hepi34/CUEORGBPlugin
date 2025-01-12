@@ -9,6 +9,7 @@
 #include "NetworkClient.h"
 #include "RGBController_Network.h"
 #include <cstring>
+#include <iostream>
 
 #ifdef _WIN32
 #include <Windows.h>
@@ -735,35 +736,11 @@ void NetworkClient::SendRequest_RGBController_ResizeZone(unsigned int dev_idx, i
     send(client_sock, (char *)&request_data, sizeof(request_data), MSG_NOSIGNAL);
 }
 
-#include <fstream>
-
-std::ofstream logFile;
-
-void NetworkClient::OpenLogFile()
-{
-    logFile.open("C:\\path\\to\\your\\log\\debug_log.txt", std::ios::app);
-}
-
-void NetworkClient::CloseLogFile()
-{
-    if (logFile.is_open())
-    {
-        logFile.close();
-    }
-}
-
-std::ofstream logFile("debug_log.txt", std::ios::app);
 
 void NetworkClient::SendRequest_RGBController_UpdateLEDs(unsigned int dev_idx, unsigned char* data, unsigned int size)
 {
     if (change_in_progress)
     {
-        return;
-    }
-
-    if (data == nullptr || size == 0)
-    {
-        logFile << "Invalid data or size for UpdateLEDs request\n";
         return;
     }
 
@@ -784,15 +761,13 @@ void NetworkClient::SendRequest_RGBController_UpdateLEDs(unsigned int dev_idx, u
 
     if (header_sent != sizeof(NetPacketHeader) || data_sent != size)
     {
-        logFile << "Failed to send UpdateLEDs request. Header sent: " << header_sent << ", Data sent: " << data_sent << "\n";
+        std::cout << "Failed to send UpdateLEDs request. Header sent: " << header_sent << ", Data sent: " << data_sent << "\n";
     }
     else
     {
-        logFile << "UpdateLEDs request sent successfully. Device ID: " << dev_idx << ", Data size: " << size << "\n";
+        std::cout << "UpdateLEDs request sent successfully. Device ID: " << dev_idx << ", Data size: " << size << "\n";
     }
 }
-
-
 
 
 
