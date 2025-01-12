@@ -7,6 +7,10 @@ Should be no major dependencies, built with Visual Studio Community 2019.
 # Description
 This plugin allows creating custom device layouts using json files and custom images as well as generating some generic LED layouts if there is no defined device. Corsair has not released an official SDK for adding custom devices. The reverse engineering is contained in `CUESDKDevice.h`. 
 
+# Current bugs
+Current bugs:
+* When multiple devices are connected, the color effects are always applied to all devices at once. The colors can't be changed for every connected device individually.
+
 ![Custom Device](/screenshots/custom_device_v4.PNG)
 
 **Files of Importance**
