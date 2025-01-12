@@ -184,9 +184,22 @@ struct LedViews
 
 enum class DeviceType : std::uint32_t
 {
-	Invalid = 0,
-	Keyboard,
-	Mouse
+	//Invalid = 0,
+	//Keyboard,
+	//Mouse
+
+	CDT_Unknown = 0, //Doesn't work
+	CDT_Mouse = 1, //Works
+	CDT_Keyboard = 2, //Works
+	CDT_Headset = 3, //Works, but lights can only be controlled via "lighting sync" and not for this device individually
+	CDT_MouseMat = 4, //Works, but lights can only be controlled via "lighting sync" and not for this device individually
+	CDT_HeadsetStand = 5, //Doesn't seem to work, you can't control the lights when using this
+	CDT_CommanderPro = 6, //Doesn't seem to work, you can't control the lights when using this
+	CDT_LightingNodePro = 7, //Doesn't seem to work, you can't control the lights when using this
+	CDT_MemoryModule = 8, //Doesn't seem to work, you can't control the lights when using this
+	CDT_Cooler = 9, //Doesn't seem to work, you can't control the lights when using this
+	CDT_Motherboard = 10, //Doesn't seem to work, you can't control the lights when using this
+	CDT_GraphicsCard = 11 //Doesn't seem to work, you can't control the lights when using this
 };
 
 // 1C

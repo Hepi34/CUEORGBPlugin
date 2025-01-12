@@ -32,12 +32,40 @@ bool CorsairPluginDevice::ReadFromJson(const nlohmann::json& settings, const nlo
 	return true;
 }
 
+int deviceNum = 0; //We need to set a different device type for each device, otherwise the lighting effects will be applied to all devices at once
+
 cue::dev::plugin::DeviceInfo* CorsairPluginDevice::CreateDeviceInfo()
 {
 	cue::dev::plugin::DeviceInfo* deviceInfo = new cue::dev::plugin::DeviceInfo;
 	deviceInfo->deviceName = _strdup(mDeviceInfo.deviceName.c_str());
 	deviceInfo->deviceId = _strdup(mDeviceInfo.deviceId.c_str());
-	deviceInfo->deviceType = cue::dev::plugin::DeviceType::Keyboard; // We are using keyboard because it treats the polys as buttons and doesn't litter the screen with key buttons
+	
+	//Here we set the device type based on the variable we set above
+	//For each connected device, the variable will be incremented by 1
+	//This limits the maximum number of devices to all the devices types which we can use to control the lights
+	//After testing, 2 device types can be controlled individually: CDT_Mouse and CDT_Keyboard
+	//Headset and MouseMat can be used to control the lights, but only with the "lighting sync" option (e.g all devices will have the same lighting effects)
+	//The other device types don't seem to work, as the lights can't be controlled when using them
+
+	if (deviceNum == 0) {
+		deviceInfo->deviceType = cue::dev::plugin::DeviceType::CDT_Mouse;
+		deviceNum++;
+	}
+	else if (deviceNum == 1) {
+		deviceInfo->deviceType = cue::dev::plugin::DeviceType::CDT_Keyboard;
+		deviceNum++;
+	}
+	else if (deviceNum == 2) {
+		deviceInfo->deviceType = cue::dev::plugin::DeviceType::CDT_Headset;
+		deviceNum++;
+	}
+	else {
+		deviceInfo->deviceType = cue::dev::plugin::DeviceType::CDT_MouseMat;
+	}
+
+	//This doesn't work, as said above, when you set all the device types to the same value, the lighting effects will be applied to all devices at once
+	//deviceInfo->deviceType = cue::dev::plugin::DeviceType::CDT_Keyboard; // We are using keyboard because it treats the polys as buttons and doesn't litter the screen with key buttons
+	
 	deviceInfo->numberOfDeviceView = static_cast<std::int32_t>(mDeviceViews.size());
 	if (mDeviceInfo.thumbnail.size())
 	{
