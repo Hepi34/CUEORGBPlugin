@@ -5,8 +5,8 @@
 Should be no major dependencies, built with Visual Studio Community 2022. 
 
 # Current bugs
-* Colors and effects can only be individually set on 2 devices. Every device over 2 devices will follow the lighting sync effect(s). I assume that ut is necessary to alter the CreadeDeviceInfo method to create devices with the other deivce types.
-* It is currently not possible to control which device will be one of the 2 which can be individually controlled. I'm working on making a config file where the user can specify which 2 devices should be the individually controlable ones. This workaround will have to existm until I figure out how to set more than 2 device types that work with all functions.
+* Colors and effects can only be individually set on 2 devices. Every device over 2 devices will follow the lighting sync effect(s). I assume that it is necessary to alter the CreadeDeviceInfo method to create devices with the other deivce types.
+* It is currently not possible to control which device will be one of the 2 which can be individually controlled. I'm working on making a config file where the user can specify which 2 devices should be the individually controlable ones. This workaround will have to exist until I figure out how to set more than 2 device types that work with all functions.
  
 # Description
 This plugin allows creating custom device layouts using json files and custom images as well as generating some generic LED layouts if there is no defined device. Corsair has not released an official SDK for adding custom devices. The reverse engineering is contained in `CUESDKDevice.h`. 
