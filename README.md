@@ -34,10 +34,9 @@ This plugin allows creating custom device layouts using json files and custom im
 # OpenRGB Installation
 * Download [OpenRGB]((https://openrgb.org/releases.html))
 * Place the folder anywhere (preferably in Program Files)
+* Run OpenRGB
 * Open the supported devices settings in OpenRGB and disable all Corsair devices to prevent conflicts (e.g. Commander Pro fan speeds may no longer show up after device scan).
 * You might want to enable the "minimize on close" option in OpenRGB to prevent it from closing when the main window is closed.
-
-* Run OpenRGB
 * Navigate to `SDK Server` tab
 * Press `Start Server`
 * Run iCUE
