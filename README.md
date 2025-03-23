@@ -23,7 +23,7 @@ This plugin allows creating custom device layouts using json files and custom im
 * Install at least 1 plugin in iCUE for the iCUE plugin host to be enabled.
 * Close iCUE completely by right-clicking in the task bar and pressing `Quit`
 * Copy contents of archive to `C:\Program Files\Corsair\CORSAIR iCUE 5 Software` directly.
-* Configure devices.json and settings.json as per the config guide. 
+* Configure devices.json and settings.json as per the [config guide](#How to configure the two .json files and add images) 
 
 # Manual Installation
 * Install at least 1 plugin in iCUE for the iCUE plugin host to be enabled.
@@ -31,6 +31,7 @@ This plugin allows creating custom device layouts using json files and custom im
 * Copy `plugins` folder to `C:\Program Files\Corsair\CORSAIR iCUE 5 Software`
 * Copy built `version.dll` to `C:\Program Files\Corsair\CORSAIR iCUE 5 Software`
 * Copy built `CUEORGBPlugin.dll` to `C:\Program Files\Corsair\CORSAIR iCUE 5 Software\plugins\OpenRGB`
+* Configure devices.json and settings.json as per the [config guide](#How to configure the two .json files and add images) 
 
 # OpenRGB Installation
 * Download [OpenRGB]((https://openrgb.org/releases.html))
