@@ -48,11 +48,11 @@ cue::dev::plugin::DeviceInfo* CorsairPluginDevice::CreateDeviceInfo()
 	//The other device types don't seem to work, as the lights can't be controlled when using them
 
 	if (deviceNum == 0) {
-		deviceInfo->deviceType = cue::dev::plugin::DeviceType::CDT_Mouse;
+		deviceInfo->deviceType = cue::dev::plugin::DeviceType::CDT_Keyboard;
 		deviceNum++;
 	}
 	else if (deviceNum == 1) {
-		deviceInfo->deviceType = cue::dev::plugin::DeviceType::CDT_Keyboard;
+		deviceInfo->deviceType = cue::dev::plugin::DeviceType::CDT_Mouse;
 		deviceNum++;
 	}
 	else if (deviceNum == 2) {

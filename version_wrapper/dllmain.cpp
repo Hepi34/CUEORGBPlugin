@@ -133,7 +133,7 @@ extern "C"    DWORD  WINAPI  VerLanguageNameW(DWORD wLang, LPWSTR szLang, DWORD 
 // Function Name     : VerQueryValueA
 // Ordinal           : 16 (0x10)
 namespace P { BOOL(WINAPI* VerQueryValueA)(LPCVOID pBlock, LPCSTR lpSubBlock, LPVOID* lplpBuffer, PUINT puLen); }
-extern "C"    BOOL  WINAPI  VerQueryValueA(LPCVOID pBlock, LPCSTR lpSubBlock, LPVOID * lplpBuffer, PUINT puLen) {
+extern "C"    BOOL  WINAPI  VerQueryValueA(LPCVOID pBlock, LPCSTR lpSubBlock, LPVOID* lplpBuffer, PUINT puLen) {
 	return   P::VerQueryValueA(pBlock, lpSubBlock, lplpBuffer, puLen);
 }
 
@@ -141,7 +141,7 @@ extern "C"    BOOL  WINAPI  VerQueryValueA(LPCVOID pBlock, LPCSTR lpSubBlock, LP
 // Function Name     : VerQueryValueW
 // Ordinal           : 17 (0x11)
 namespace P { BOOL(WINAPI* VerQueryValueW)(LPCVOID pBlock, LPCWSTR lpSubBlock, LPVOID* lplpBuffer, PUINT puLen); }
-extern "C"    BOOL  WINAPI  VerQueryValueW(LPCVOID pBlock, LPCWSTR lpSubBlock, LPVOID * lplpBuffer, PUINT puLen) {
+extern "C"    BOOL  WINAPI  VerQueryValueW(LPCVOID pBlock, LPCWSTR lpSubBlock, LPVOID* lplpBuffer, PUINT puLen) {
 	return   P::VerQueryValueW(pBlock, lpSubBlock, lplpBuffer, puLen);
 }
 
@@ -165,22 +165,40 @@ DWORD WINAPI CUEHookThread(LPVOID Arg)
 #endif
 
 	HMODULE winTrustModule = GetModuleHandle(_T("WINTRUST.dll"));
+	while ((winTrustModule = GetModuleHandle(_T("WINTRUST.dll"))) == nullptr)
+	{
+		::Sleep(10); // Wait for WINTRUST.dll to be loaded
+		//It seems that from V5.22 of iCUE , the WINTRUST.dll is loaded after this dll
+	}
 	if (winTrustModule) {
 		FARPROC winVerifyTrust = GetProcAddress(winTrustModule, "WinVerifyTrust");
 		if (winVerifyTrust) {
-			BYTE bypass[] = { 0x31, 0xC0, 0xC3 };
+
+
+			//BYTE bypass[] = { 0x31, 0xC0, 0xC3 };
 			// xor eax, eax
 			// ret
 
+			BYTE bypass[] = { 0x48, 0x31, 0xC0, 0xC3 };
+			// xor rax, rax
+			// ret
+			// clear the entire 64 bit register, not just the lower 32 bits
+
 			DWORD d, ds;
+
 			VirtualProtect((LPVOID)winVerifyTrust, 1, PAGE_EXECUTE_READWRITE, &d);
 			memcpy((PBYTE)winVerifyTrust, bypass, sizeof(bypass));
 			VirtualProtect((LPVOID)winVerifyTrust, 1, d, &ds);
+
 		}
+
+
 	}
-		
+
 	return 0;
 }
+
+
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD fdwReason, LPVOID lpReserved)
 {
@@ -190,15 +208,15 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD fdwReason, LPVOID lpReserved)
 
 	switch (fdwReason)
 	{
-		case DLL_PROCESS_ATTACH:
-			// Load dll
-			TCHAR path[MAX_PATH];
-			GetSystemDirectory(path, MAX_PATH);
-			_tcscat_s(path, _T("\\version.dll"));
-			versiondll = LoadLibrary(path);
+	case DLL_PROCESS_ATTACH:
+		// Load dll
+		TCHAR path[MAX_PATH];
+		GetSystemDirectory(path, MAX_PATH);
+		_tcscat_s(path, _T("\\version.dll"));
+		versiondll = LoadLibrary(path);
 
-			ASSIGN_PROC(GetFileVersionInfoA, versiondll);
-			ASSIGN_PROC(GetFileVersionInfoByHandle, versiondll)
+		ASSIGN_PROC(GetFileVersionInfoA, versiondll);
+		ASSIGN_PROC(GetFileVersionInfoByHandle, versiondll)
 			ASSIGN_PROC(GetFileVersionInfoExA, versiondll)
 			ASSIGN_PROC(GetFileVersionInfoExW, versiondll)
 			ASSIGN_PROC(GetFileVersionInfoSizeA, versiondll)
@@ -215,13 +233,15 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD fdwReason, LPVOID lpReserved)
 			ASSIGN_PROC(VerQueryValueA, versiondll)
 			ASSIGN_PROC(VerQueryValueW, versiondll)
 
-			CUEHookThread(nullptr);
-			//CreateThread(nullptr, 0, CUEHookThread, nullptr, 0, nullptr);
-			break;
+			//CUEHookThread(nullptr);
+			CreateThread(nullptr, 0, CUEHookThread, nullptr, 0, nullptr);
+			//This dll has to be loaded on a speerate thread because it is loaded before the dll we're trying to modify
+			
+		break;
 
-		case DLL_PROCESS_DETACH:
-			FreeLibrary(versiondll);
-			break;
+	case DLL_PROCESS_DETACH:
+		FreeLibrary(versiondll);
+		break;
 	}
 
 	return TRUE;
