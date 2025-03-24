@@ -1,15 +1,30 @@
 # CUEORGBPlugin
  Custom iCUE plugin to control OpenRGB from within iCUE
- 
-# Compiling
-Should be no major dependencies, built with Visual Studio Community 2022. 
+
+ * [Description](#description)
+ * [Files of importance](#files-of-importance)
+ * [Release installation](#release-installation)
+ * [Manual installation](#manual-installation)
+ * [OpenRGB installation](#openrgb-installation)
+ * [.JSON config guide & adding custom images](#how-to-configure-the-two-json-files-and-add-images)
+ * [Compiling](#compiling)
+ * [Current bugs](#current-bugs)
+ * [Thirdparty projects used](#thirdparty-projects-used)
+
+# Getting started
+ * Download the latest release from the "Releases" tab 
+ * [Install OpenRGB](#openrgb-installation) and [configure it to start with Windows](#openrgb-as-a-startup-process-(windows))
+ * Head to the [release installation](#release-installation) section and follow the steps.
+ * Head to the [.JSON config guide & adding custom images](#how-to-configure-the-two-json-files-and-add-images) section and follow the steps
+
+ ---
 
 # Description
 This plugin allows creating custom device layouts using json files and custom images as well as generating some generic LED layouts if there is no defined device. Corsair has not released an official SDK for adding custom devices. The reverse engineering is contained in `CUESDKDevice.h`. 
 
 ![Custom Device](/screenshots/custom_device_v4.PNG)
 
-**Files of Importance**
+# Files of Importance
 * `version.dll` - This is a wrapper dll to disable iCUE's signature check on plugins loaded from the Plugins folder. Normally iCUE will run WinVerifyTrust on all plugins it is attempting to load. I haven't determined whether it needs to be signed by Corsair specifically, this wrapper when placed in the Corsair iCUE program directory will disable this check entirely.
 * `CUEORGBPlugin.dll` - This implements the OpenRGB Client interface and utilizes/merges json files to create devices
 * `settings.json` - This file specifies the default LED/Zone layout display of some devices in the event no specific device is found within `devices.json`
@@ -65,6 +80,11 @@ You might want to start OpenRGB when you start windows as iCUE is also a Startup
 * There isn't really anything to do inside of settings.json.
 * The only option that you should pay attention to is the "IgnoreMouse" option. If it is set to true, the 2nd connected device will already be the "headset" or "mousemat" type. This will cause the effects to only be changeable via "lighting link" or murals. If you set it to false, the 2nd connected device will be able to be controlled via individual effects and with the "lighting sync". It will however not appear in murals.
 * ![JSON](/screenshots/settings2_json.png)
+
+---
+
+# Compiling
+Should be no major dependencies, built with Visual Studio Community 2022.
 
 # Current bugs
 * Colors and effects can only be individually set on 2 devices. Every device over 2 devices will follow the lighting link effect(s). I assume that it is necessary to alter the CreadeDeviceInfo method to create devices with the other device types.
