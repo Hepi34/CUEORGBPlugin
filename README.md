@@ -1,6 +1,7 @@
 # CUEORGBPlugin
  Custom iCUE plugin to control OpenRGB from within iCUE
 
+ * [Getting started](#getting-started)
  * [Description](#description)
  * [Files of importance](#files-of-importance)
  * [Release installation](#release-installation)
