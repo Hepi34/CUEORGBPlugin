@@ -62,11 +62,12 @@ You might want to start OpenRGB when you start windows as iCUE is also a Startup
 * ![Rect](/screenshots/rectangle.png)
 * To configure multiple zones, configure them like in the screenshot below.
 * ![Multiple Zones](/screenshots/multiple_zones.png)
-* Please add the same changes to settings.json as well. Everything minus the name and the InheritDefault should be the same for both files. The OpenRGB settings at the top of settings.json shouldn't be changed. See the screenshot below for an example configuration of settings.json.
-* ![JSON](/screenshots/settings_json.png)
+* There isn't really anything to do inside of settings.json.
+* The only option that you should pay attention to is the "IgnoreMouse" option. If it is set to true, the 2nd connected device will already be the "headset" or "mousemat" type. This will cause the effects to only be changeable via "lighting link" or murals. If you set it to false, the 2nd connected device will be able to be controlled via individual effects and with the "lighting sync". It will however not appear in murals.
+* ![JSON](/screenshots/settings2_json.png)
 
 # Current bugs
-* Colors and effects can only be individually set on 2 devices. Every device over 2 devices will follow the lighting sync effect(s). I assume that it is necessary to alter the CreadeDeviceInfo method to create devices with the other deivce types.
+* Colors and effects can only be individually set on 2 devices. Every device over 2 devices will follow the lighting link effect(s). I assume that it is necessary to alter the CreadeDeviceInfo method to create devices with the other deivce types.
 * It is currently not possible to control which device will be one of the 2 which can be individually controlled. I'm working on making a config file where the user can specify which 2 devices should be the individually controlable ones. This workaround will have to exist until I figure out how to set more than 2 device types that work with all functions.
  
 # Thirdparty Projects used
