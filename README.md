@@ -58,7 +58,7 @@ You might want to start OpenRGB when you start windows as iCUE is also a Startup
 * InheritDefault: false
 * Zones: The name of the zones you want to control, just like they are named in OpenRGB
 * Views/Image: The path to your device view image. I suggest copying the default one.
-* Views/PolyGenerator: Specify your zone once again. Rect contains coordinates to where the rectangle in the iCUE device view should be placed. See the screenshot below for an explaination.
+* Views/PolyGenerator: Specify your zone once again. Rect contains coordinates to where the rectangle in the iCUE device view should be placed. See the screenshot below for an explanation.
 * ![Rect](/screenshots/rectangle.png)
 * To configure multiple zones, configure them like in the screenshot below.
 * ![Multiple Zones](/screenshots/multiple_zones.png)
