@@ -67,7 +67,7 @@ You might want to start OpenRGB when you start windows as iCUE is also a Startup
 * ![JSON](/screenshots/settings2_json.png)
 
 # Current bugs
-* Colors and effects can only be individually set on 2 devices. Every device over 2 devices will follow the lighting link effect(s). I assume that it is necessary to alter the CreadeDeviceInfo method to create devices with the other deivce types.
+* Colors and effects can only be individually set on 2 devices. Every device over 2 devices will follow the lighting link effect(s). I assume that it is necessary to alter the CreadeDeviceInfo method to create devices with the other device types.
 * It is currently not possible to control which device will be one of the 2 which can be individually controlled. I'm working on making a config file where the user can specify which 2 devices should be the individually controlable ones. This workaround will have to exist until I figure out how to set more than 2 device types that work with all functions.
  
 # Thirdparty Projects used
