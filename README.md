@@ -6,6 +6,7 @@
  * [Release installation](#release-installation)
  * [Manual installation](#manual-installation)
  * [OpenRGB installation](#openrgb-installation)
+ * [OpenRGB as a Windows startup process](#openrgb-as-a-startup-process-windows)
  * [.JSON config guide & adding custom images](#how-to-configure-the-two-json-files-and-add-images)
  * [Compiling](#compiling)
  * [Current bugs](#current-bugs)
@@ -13,7 +14,7 @@
 
 # Getting started
  * Download the latest release from the "Releases" tab 
- * [Install OpenRGB](#openrgb-installation) and [configure it to start with Windows](#openrgb-as-a-startup-process-(windows))
+ * [Install OpenRGB](#openrgb-installation) and [configure it to start with Windows](#openrgb-as-a-startup-process-windows)
  * Head to the [release installation](#release-installation) section and follow the steps.
  * Head to the [.JSON config guide & adding custom images](#how-to-configure-the-two-json-files-and-add-images) section and follow the steps
 
