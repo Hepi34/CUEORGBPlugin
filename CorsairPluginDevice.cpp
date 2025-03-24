@@ -11,6 +11,8 @@
 
 using json = nlohmann::json;
 
+bool	IgnoreMouse;
+
 bool CorsairPluginDevice::ReadFromJson(const nlohmann::json& settings, const nlohmann::json& devices, bool clear)
 {
 	if (clear)
@@ -23,6 +25,16 @@ bool CorsairPluginDevice::ReadFromJson(const nlohmann::json& settings, const nlo
 	{
 		GetDeviceInfoFromJson(settings, devices);
 		GetDeviceViewFromJson(settings, devices);
+
+		if (settings.contains("IgnoreMouse") && settings["IgnoreMouse"].contains("ignore"))
+		{
+			IgnoreMouse = settings["IgnoreMouse"]["ignore"];
+		}
+		else
+		{
+			IgnoreMouse = false; //Default to false
+		}
+
 	}
 	catch (...)
 	{
@@ -39,7 +51,7 @@ cue::dev::plugin::DeviceInfo* CorsairPluginDevice::CreateDeviceInfo()
 	cue::dev::plugin::DeviceInfo* deviceInfo = new cue::dev::plugin::DeviceInfo;
 	deviceInfo->deviceName = _strdup(mDeviceInfo.deviceName.c_str());
 	deviceInfo->deviceId = _strdup(mDeviceInfo.deviceId.c_str());
-	
+
 	//Here we set the device type based on the variable we set above
 	//For each connected device, the variable will be incremented by 1
 	//This limits the maximum number of devices to all the devices types which we can use to control the lights
@@ -50,6 +62,9 @@ cue::dev::plugin::DeviceInfo* CorsairPluginDevice::CreateDeviceInfo()
 	if (deviceNum == 0) {
 		deviceInfo->deviceType = cue::dev::plugin::DeviceType::CDT_Keyboard;
 		deviceNum++;
+		if (IgnoreMouse) {
+			deviceNum++;
+		}
 	}
 	else if (deviceNum == 1) {
 		deviceInfo->deviceType = cue::dev::plugin::DeviceType::CDT_Mouse;
@@ -462,6 +477,16 @@ void CorsairPluginDevice::GetDeviceInfoFromJson(const json& settings, const json
 				mDeviceInfo.zones.clear();
 				mDeviceInfo.ledMapping.clear();
 			}
+		}
+
+		if (device.contains("Thumbnail"))
+		{
+			mDeviceInfo.thumbnail = device["Thumbnail"];
+		}
+
+		if (device.contains("Image"))
+		{
+			mDeviceInfo.promo = device["Image"];
 		}
 
 		if (device.contains("Zones") && device["Zones"].is_array())

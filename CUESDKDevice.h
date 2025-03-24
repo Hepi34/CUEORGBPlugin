@@ -189,8 +189,8 @@ enum class DeviceType : std::uint32_t
 	//Mouse
 
 	CDT_Unknown = 0, //Doesn't work
-	CDT_Mouse = 1, //Works
-	CDT_Keyboard = 2, //Works
+	CDT_Keyboard = 1, //Works
+	CDT_Mouse = 2, //Works
 	CDT_Headset = 3, //Works, but lights can only be controlled via "lighting sync" and not for this device individually
 	CDT_MouseMat = 4, //Works, but lights can only be controlled via "lighting sync" and not for this device individually
 	CDT_HeadsetStand = 5, //Doesn't seem to work, you can't control the lights when using this
