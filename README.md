@@ -66,7 +66,7 @@ You might want to start OpenRGB when you start windows as iCUE is also a Startup
 
 # How to configure the two .json files and add images
 * The JSON configuration files for this plugin were created by the previous developer, not me. Based on my understanding, I'll try to explain how they should be set up.
-* To add images, place them in the images folder. If you wanted to add a motherboard for example, you'd have to place the image im /images/mothermoard/BRAND_NAME/device_view.png or promo.png or thumbnail.png.
+* To add images, place them in the images folder. If you wanted to add a motherboard for example, you'd have to place the image in /images/mothermoard/BRAND_NAME/device_view.png or promo.png or thumbnail.png.
 * Device view is the big picture that appears when you click on a device. Promo is the picture that appears on the start page of iCUE. Lastly, thumbnail is the picture which appears in the top row while you have a device selected.
 * Devices.json should be configured like so:
 * ![JSON](/screenshots/devices_json.png)
