@@ -79,8 +79,7 @@ You might want to start OpenRGB when you start windows as iCUE is also a Startup
 * ![Rect](/screenshots/rectangle.png)
 * To configure multiple zones, configure them like in the screenshot below.
 * ![Multiple Zones](/screenshots/multiple_zones.png)
-* There isn't really anything to do inside of settings.json.
-* The only option that you should pay attention to is the "IgnoreMouse" option. If it is set to true, the 2nd connected device will already be the "headset" or "mousemat" type. This will cause the effects to only be changeable via "lighting link" or murals. If you set it to false, the 2nd connected device will be able to be controlled via individual effects and with the "lighting sync". It will however not appear in murals.
+* The only option that you should pay attention to inside of the settings.json file is the "IgnoreMouse" option. If it is set to true, the 2nd connected device will already be the "headset" or "mousemat" type. This will cause the effects to only be changeable via "lighting link" or murals. If you set it to false, the 2nd connected device will be able to be controlled via individual effects and with the "lighting sync". It will however not appear in murals.
 * ![JSON](/screenshots/settings2_json.png)
 
 ---
