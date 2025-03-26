@@ -82,9 +82,10 @@ You might want to start OpenRGB when you start windows as iCUE is also a Startup
 * The only option that you should pay attention to inside of the settings.json file is the "IgnoreMouse" option. If it is set to true, the 2nd connected device will already be the "headset" or "mousemat" type. This will cause the effects to only be changeable via "lighting link" or murals. If you set it to false, the 2nd connected device will be able to be controlled via individual effects and with the "lighting sync". It will however not appear in murals.
 * See the table below for some more info on IgnoreMouse.
 * ![JSON](/screenshots/settings2_json.png)
+
 | 1st Connected Device | 2nd Connected Device | 2nd Connected Device | 3rd and More |
 |----------------------|----------------------|----------------------|--------------|
-| **IgnoreMouse: N/A** | **IgnoreMouse: False** | **IgnoreMouse: True** | **IgnoreMouse: N/A** |
+| IgnoreMouse: N/A | IgnoreMouse: False | IgnoreMouse: True | IgnoreMouse: N/A |
 | Individual Control: Yes | Individual Control: Yes | Individual Control: No | Individual Control: No |
 | Lighting Link: Yes | Lighting Link: Yes | Lighting Link: Yes | Lighting Link: Yes |
 | Murals: Yes | Murals: No | Murals: Yes | Murals: Yes |
