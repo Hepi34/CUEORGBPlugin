@@ -61,7 +61,7 @@ You might want to start OpenRGB when you start windows as iCUE is also a Startup
 * To add images, place them in the images folder. If you wanted to add a motherboard for example, you'd have to place the image in /images/mothermoard/BRAND_NAME/device_view.png or promo.png or thumbnail.png.
 * Device view is the big picture that appears when you click on a device. Promo is the picture that appears on the start page of iCUE. Lastly, thumbnail is the picture which appears in the top row while you have a device selected.
 * Devices.json should be configured like so:
-* ![JSON](/screenshots/devices_json.png)
+* ![JSON](/screenshots/devices_json2.png)
 * Name: The name as it is displayed in OpenRGB
 * Thumbnail and Image: The path to your images
 * InheritDefault: false
